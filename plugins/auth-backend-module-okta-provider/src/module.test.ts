@@ -61,7 +61,7 @@ describe('authModuleOktaProvider', () => {
 
     const startUrl = new URL(res.get('location'));
     expect(startUrl.origin).toBe('https://okta.com');
-    expect(startUrl.pathname).toBe('/oauth/authorize');
+    expect(startUrl.pathname).toBe('/oauth2/v1/authorize');
     expect(Object.fromEntries(startUrl.searchParams)).toEqual({
       response_type: 'code',
       scope: 'read_user',
