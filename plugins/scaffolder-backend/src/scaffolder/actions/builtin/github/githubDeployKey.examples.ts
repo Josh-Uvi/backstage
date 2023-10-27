@@ -13,9 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { TemplateExample } from '@backstage/plugin-scaffolder-node';
+import yaml from 'yaml';
 
-export { catalogServiceRef } from './catalogService';
-export type { CatalogProcessingExtensionPoint } from './extensions';
-export { catalogProcessingExtensionPoint } from './extensions';
-export type { CatalogAnalysisExtensionPoint } from './extensions';
-export { catalogAnalysisExtensionPoint } from './extensions';
+export const examples: TemplateExample[] = [
+  {
+    description: 'Example 1: Create and store a Deploy Key',
+    example: yaml.stringify({
+      steps: [
+        {
+          action: 'github:deployKey:create',
+          name: 'Create and store a Deploy Key',
+          input: {
+            repoUrl: 'github.com?repo=repository&owner=owner',
+            publicKey: 'pubkey',
+            privateKey: 'privkey',
+            deployKeyName: 'Push Tags',
+          },
+        },
+      ],
+    }),
+  },
+];
